@@ -1,6 +1,7 @@
 import React from "react";
 import useCampaign from "../hooks/useCampaign";
 import Image from "../assets/crowd.jpeg";
+import { shortenAccount } from "../utils";
 
 const ListCampaign = () => {
   const campaigns = useCampaign();
@@ -25,23 +26,23 @@ const ListCampaign = () => {
               </h1>
               <p className="text-2xl font-semibold">
                 Owner: <br />
-                <span className="text-red-500 text-lg">{item[2]}</span>
+                <span className="text-red-500">{shortenAccount(item[2])}</span>
               </p>
               <p className="text-2xl font-semibold">
-                Funding Goal:{" "}
-                <span className="text-red-500">{item[1].toString()}</span> ETH
+                Goal: <span className="text-red-500">{item[1].toString()}</span>{" "}
+                ETH
               </p>
               <p className="text-2xl font-semibold">
-                Duration Time:{" "}
+                Duration:{" "}
                 <span className="text-red-500">{item[3].toString()}</span>{" "}
                 seconds
               </p>
               <p className="text-2xl font-semibold">
-                Is Active:{" "}
+                Active:{" "}
                 <span className="text-red-500">{item[4] ? "Yes" : "No"}</span>
               </p>
               <p className="text-2xl font-semibold">
-                Funding Balance:{" "}
+                Funds:{" "}
                 <span className="text-red-500">{item[5].toString()} </span>ETH
               </p>
             </div>
